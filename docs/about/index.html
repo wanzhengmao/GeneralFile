@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f5f5; color: #1a1a1a; line-height: 1.7;
+}
+.container { padding: 20px 20px 60px; }
+.tabs {
+  display: flex; gap: 8px; overflow-x: auto;
+  white-space: nowrap; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0; margin-bottom: 20px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex-shrink: 0; padding: 6px 16px; border-radius: 20px; border: 1px solid #ccc;
+  background: #fff; font-size: 14px; cursor: pointer; transition: all .2s;
+  outline: none; -webkit-tap-highlight-color: transparent; user-select: none;
+}
+.tab:hover { border-color: #0064E0; color: #0064E0; }
+.tab.active { background: #0064E0; color: #fff; border-color: #0064E0; }
+.content h2 { font-size: 18px; margin-bottom: 4px; }
+.version { font-size: 14px; color: #888; margin-bottom: 14px; }
+.content p { font-size: 15px; margin-bottom: 12px; }
+.content ul { padding-left: 0; margin-bottom: 12px; list-style: none; }
+.content li { font-size: 15px; margin-bottom: 6px; }
+.content li::before { content: "· "; }
+.lang { display: none; }
+.lang.active { display: block; }
+.divider { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+.contact { font-size: 14px; color: #888; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="tabs">
+  <div class="tab" data-lang="zh" onclick="switchLang(this, 'zh')">简体中文</div>
+  <div class="tab" data-lang="en" onclick="switchLang(this, 'en')">English</div>
+  <div class="tab" data-lang="zh-tw" onclick="switchLang(this, 'zh-tw')">繁體中文</div>
+  <div class="tab" data-lang="ja" onclick="switchLang(this, 'ja')">日本語</div>
+  <div class="tab" data-lang="ko" onclick="switchLang(this, 'ko')">한국어</div>
+</div>
+
+<div class="content">
+<div class="lang active" id="lang-zh">
+  <h2>PDF 页面提取助手</h2>
+  <div class="version">v1.0</div>
+  <p>首版发布，提供 PDF 页面提取、删除、排序等核心功能。</p>
+  <ul>
+    <li>页面选择与范围输入</li>
+    <li>页眉/页脚智能分组提取</li>
+    <li>章节自动识别分组</li>
+    <li>关键字搜索匹配</li>
+    <li>操作历史记录</li>
+    <li>多语言支持</li>
+  </ul>
+  <hr class="divider">
+  <p class="contact">如有问题或建议请联系：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-en">
+  <h2>PDF Page Extractor</h2>
+  <div class="version">v1.0</div>
+  <p>Initial release with core PDF page extraction, deletion, and reordering features.</p>
+  <ul>
+    <li>Page selection with range input</li>
+    <li>Header/footer smart grouping extraction</li>
+    <li>Chapter auto-detection grouping</li>
+    <li>Keyword search matching</li>
+    <li>Operation history</li>
+    <li>Multi-language support</li>
+  </ul>
+  <hr class="divider">
+  <p class="contact">Contact: pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-zh-tw">
+  <h2>PDF 頁面提取助手</h2>
+  <div class="version">v1.0</div>
+  <p>首版發布，提供 PDF 頁面提取、刪除、排序等核心功能。</p>
+  <ul>
+    <li>頁面選擇與範圍輸入</li>
+    <li>頁眉/頁腳智慧分組提取</li>
+    <li>章節自動識別分組</li>
+    <li>關鍵字搜尋匹配</li>
+    <li>操作歷史記錄</li>
+    <li>多語言支援</li>
+  </ul>
+  <hr class="divider">
+  <p class="contact">如有疑問請聯絡：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-ja">
+  <h2>PDFページ抽出ツール</h2>
+  <div class="version">v1.0</div>
+  <p>初回リリース。PDFページの抽出、削除、並べ替えのコア機能を提供します。</p>
+  <ul>
+    <li>範囲入力によるページ選択</li>
+    <li>ヘッダー/フッターのスマートグループ抽出</li>
+    <li>チャプター自動検出グループ化</li>
+    <li>キーワード検索マッチング</li>
+    <li>操作履歴</li>
+    <li>多言語サポート</li>
+  </ul>
+  <hr class="divider">
+  <p class="contact">お問い合わせ：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-ko">
+  <h2>PDF 페이지 추출 도우미</h2>
+  <div class="version">v1.0</div>
+  <p>첫 번째 릴리스, PDF 페이지 추출, 삭제, 재정렬 등 핵심 기능을 제공합니다.</p>
+  <ul>
+    <li>범위 입력으로 페이지 선택</li>
+    <li>머리글/바닥글 스마트 그룹 추출</li>
+    <li>챕터 자동 감지 그룹화</li>
+    <li>키워드 검색 매칭</li>
+    <li>작업 기록</li>
+    <li>다국어 지원</li>
+  </ul>
+  <hr class="divider">
+  <p class="contact">문의: pdfpageextractor@outlook.com</p>
+</div>
+</div>
+</div>
+
+<script>
+function switchLang(el, lang) {
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.lang').forEach(function(l) { l.classList.remove('active'); });
+  el.classList.add('active');
+  document.getElementById('lang-' + lang).classList.add('active');
+}
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang');
+  if (lang) {
+    var tab = document.querySelector('.tab[data-lang="' + lang + '"]');
+    if (tab) switchLang(tab, lang);
+  }
+})();
+</script>
+</body>
+</html>

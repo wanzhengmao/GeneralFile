@@ -32,16 +32,18 @@ body {
 .content li::before { content: "· "; }
 .lang { display: none; }
 .lang.active { display: block; }
+.divider { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+.contact { font-size: 14px; color: #888; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="tabs">
-  <div class="tab active" onclick="switchLang(this, 'zh')">简体中文</div>
-  <div class="tab" onclick="switchLang(this, 'en')">English</div>
-  <div class="tab" onclick="switchLang(this, 'zh-tw')">繁體中文</div>
-  <div class="tab" onclick="switchLang(this, 'ja')">日本語</div>
-  <div class="tab" onclick="switchLang(this, 'ko')">한국어</div>
+  <div class="tab" data-lang="zh" onclick="switchLang(this, 'zh')">简体中文</div>
+  <div class="tab" data-lang="en" onclick="switchLang(this, 'en')">English</div>
+  <div class="tab" data-lang="zh-tw" onclick="switchLang(this, 'zh-tw')">繁體中文</div>
+  <div class="tab" data-lang="ja" onclick="switchLang(this, 'ja')">日本語</div>
+  <div class="tab" data-lang="ko" onclick="switchLang(this, 'ko')">한국어</div>
 </div>
 
 <div class="content">
@@ -55,7 +57,8 @@ body {
   <li>所有文件处理均在您的设备本地完成</li>
   <li>仅申请文件读写权限用于 PDF 处理功能</li>
 </ul>
-<p>如有疑问请联系：pdfpageextractor@outlook.com</p>
+<hr class="divider">
+<p class="contact">如有问题或建议请联系：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-en">
@@ -68,7 +71,8 @@ body {
   <li>All file processing happens locally on your device</li>
   <li>Only requests file access for PDF processing</li>
 </ul>
-<p>Contact: pdfpageextractor@outlook.com</p>
+<hr class="divider">
+<p class="contact">Contact: pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-zh-tw">
@@ -81,7 +85,8 @@ body {
   <li>所有檔案處理均在您的裝置本地完成</li>
   <li>僅申請檔案讀寫權限用於 PDF 處理功能</li>
 </ul>
-<p>如有疑問請聯絡：pdfpageextractor@outlook.com</p>
+<hr class="divider">
+<p class="contact">如有疑問請聯絡：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-ja">
@@ -94,7 +99,8 @@ body {
   <li>すべてのファイル処理はお客様のデバイス上でローカルに実行されます</li>
   <li>PDF処理に必要なファイルアクセス権限のみを要求します</li>
 </ul>
-<p>お問い合わせ：pdfpageextractor@outlook.com</p>
+<hr class="divider">
+<p class="contact">お問い合わせ：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-ko">
@@ -107,7 +113,8 @@ body {
   <li>모든 파일 처리는 기기에서 로컬로 수행됩니다</li>
   <li>PDF 처리를 위한 파일 접근 권한만 요청합니다</li>
 </ul>
-<p>문의: pdfpageextractor@outlook.com</p>
+<hr class="divider">
+<p class="contact">문의: pdfpageextractor@outlook.com</p>
 </div>
 </div>
 </div>
@@ -119,6 +126,14 @@ function switchLang(el, lang) {
   el.classList.add('active');
   document.getElementById('lang-' + lang).classList.add('active');
 }
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang');
+  if (lang) {
+    var tab = document.querySelector('.tab[data-lang="' + lang + '"]');
+    if (tab) switchLang(tab, lang);
+  }
+})();
 </script>
 </body>
 </html>

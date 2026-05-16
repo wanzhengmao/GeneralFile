@@ -32,16 +32,18 @@ body {
 .content li::before { content: "· "; }
 .lang { display: none; }
 .lang.active { display: block; }
+.divider { border: none; border-top: 1px solid #e0e0e0; margin: 24px 0; }
+.contact { font-size: 14px; color: #888; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="tabs">
-  <div class="tab active" onclick="switchLang(this, 'zh')">简体中文</div>
-  <div class="tab" onclick="switchLang(this, 'en')">English</div>
-  <div class="tab" onclick="switchLang(this, 'zh-tw')">繁體中文</div>
-  <div class="tab" onclick="switchLang(this, 'ja')">日本語</div>
-  <div class="tab" onclick="switchLang(this, 'ko')">한국어</div>
+  <div class="tab" data-lang="zh" onclick="switchLang(this, 'zh')">简体中文</div>
+  <div class="tab" data-lang="en" onclick="switchLang(this, 'en')">English</div>
+  <div class="tab" data-lang="zh-tw" onclick="switchLang(this, 'zh-tw')">繁體中文</div>
+  <div class="tab" data-lang="ja" onclick="switchLang(this, 'ja')">日本語</div>
+  <div class="tab" data-lang="ko" onclick="switchLang(this, 'ko')">한국어</div>
 </div>
 
 <div class="content">
@@ -55,6 +57,8 @@ body {
   <li>本应用保留随时修改或终止服务的权利</li>
 </ul>
 <p>使用本应用即表示您同意这些条款。</p>
+<hr class="divider">
+<p class="contact">如有问题或建议请联系：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-en">
@@ -67,6 +71,8 @@ body {
   <li>We reserve the right to modify or discontinue the service</li>
 </ul>
 <p>By using this app, you agree to these terms.</p>
+<hr class="divider">
+<p class="contact">Contact: pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-zh-tw">
@@ -79,6 +85,8 @@ body {
   <li>本應用保留隨時修改或終止服務的權利</li>
 </ul>
 <p>使用本應用即表示您同意這些條款。</p>
+<hr class="divider">
+<p class="contact">如有疑問請聯絡：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-ja">
@@ -91,6 +99,8 @@ body {
   <li>当方は予告なくサービスの変更または中止を行う権利を有します</li>
 </ul>
 <p>本アプリを使用することにより、これらの利用規約に同意したものとみなします。</p>
+<hr class="divider">
+<p class="contact">お問い合わせ：pdfpageextractor@outlook.com</p>
 </div>
 
 <div class="lang" id="lang-ko">
@@ -103,6 +113,8 @@ body {
   <li>당사는 언제든지 서비스를 수정하거나 중단할 권리를 보유합니다</li>
 </ul>
 <p>본 앱을 사용함으로써 귀하는 이러한 약관에 동의하는 것입니다.</p>
+<hr class="divider">
+<p class="contact">문의: pdfpageextractor@outlook.com</p>
 </div>
 </div>
 </div>
@@ -114,6 +126,14 @@ function switchLang(el, lang) {
   el.classList.add('active');
   document.getElementById('lang-' + lang).classList.add('active');
 }
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang');
+  if (lang) {
+    var tab = document.querySelector('.tab[data-lang="' + lang + '"]');
+    if (tab) switchLang(tab, lang);
+  }
+})();
 </script>
 </body>
 </html>
