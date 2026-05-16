@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f5f5; color: #1a1a1a; line-height: 1.7;
+}
+.container { max-width: 680px; margin: 0 auto; padding: 24px 20px 60px; }
+h1 { font-size: 24px; margin-bottom: 20px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.tab {
+  padding: 6px 16px; border-radius: 20px; border: 1px solid #ccc;
+  background: #fff; font-size: 14px; cursor: pointer; transition: all .2s;
+}
+.tab:hover { border-color: #0064E0; color: #0064E0; }
+.tab.active { background: #0064E0; color: #fff; border-color: #0064E0; }
+.card {
+  background: #fff; border-radius: 12px; padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.card h2 { font-size: 20px; margin-bottom: 16px; }
+.card p { margin-bottom: 14px; font-size: 15px; }
+.card ul { padding-left: 20px; margin-bottom: 14px; }
+.card li { font-size: 15px; margin-bottom: 8px; }
+.lang { display: none; }
+.lang.active { display: block; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Privacy Policy</h1>
+<div class="tabs">
+  <div class="tab active" onclick="switchLang('zh')">简体中文</div>
+  <div class="tab" onclick="switchLang('en')">English</div>
+  <div class="tab" onclick="switchLang('zh-tw')">繁體中文</div>
+  <div class="tab" onclick="switchLang('ja')">日本語</div>
+  <div class="tab" onclick="switchLang('ko')">한국어</div>
+</div>
+
+<div class="card">
+<div class="lang active" id="lang-zh">
+<h2>隐私政策</h2>
+<p>PDF 页面提取助手重视您的隐私。本应用：</p>
+<ul>
+  <li>完全离线运行，不收集任何个人信息</li>
+  <li>不上传任何 PDF 文件或页面内容到服务器</li>
+  <li>不使用任何第三方分析或广告 SDK</li>
+  <li>所有文件处理均在您的设备本地完成</li>
+  <li>仅申请文件读写权限用于 PDF 处理功能</li>
+</ul>
+<p>如有疑问请联系：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-en">
+<h2>Privacy Policy</h2>
+<p>PDF Page Extractor values your privacy. This app:</p>
+<ul>
+  <li>Works completely offline and collects no personal data</li>
+  <li>Never uploads PDF files or content to any server</li>
+  <li>Uses no third-party analytics or advertising SDKs</li>
+  <li>All file processing happens locally on your device</li>
+  <li>Only requests file access for PDF processing</li>
+</ul>
+<p>Contact: pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-zh-tw">
+<h2>隱私政策</h2>
+<p>PDF 頁面提取助手重視您的隱私。本應用：</p>
+<ul>
+  <li>完全離線運行，不收集任何個人資訊</li>
+  <li>不上傳任何 PDF 檔案或頁面內容到伺服器</li>
+  <li>不使用任何第三方分析或廣告 SDK</li>
+  <li>所有檔案處理均在您的裝置本地完成</li>
+  <li>僅申請檔案讀寫權限用於 PDF 處理功能</li>
+</ul>
+<p>如有疑問請聯絡：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-ja">
+<h2>プライバシーポリシー</h2>
+<p>PDFページ抽出ツールはお客様のプライバシーを尊重します。本アプリ：</p>
+<ul>
+  <li>完全オフラインで動作し、個人情報を収集しません</li>
+  <li>PDFファイルやページ内容をサーバーにアップロードしません</li>
+  <li>サードパーティの分析や広告SDKを使用しません</li>
+  <li>すべてのファイル処理はお客様のデバイス上でローカルに実行されます</li>
+  <li>PDF処理に必要なファイルアクセス権限のみを要求します</li>
+</ul>
+<p>お問い合わせ：pdfpageextractor@outlook.com</p>
+</div>
+
+<div class="lang" id="lang-ko">
+<h2>개인정보 처리방침</h2>
+<p>PDF 페이지 추출 도우미는 사용자의 개인정보를 소중히 여깁니다. 본 앱:</p>
+<ul>
+  <li>완전 오프라인으로 작동하며 개인정보를 수집하지 않습니다</li>
+  <li>PDF 파일이나 페이지 콘텐츠를 서버에 업로드하지 않습니다</li>
+  <li>타사 분석 또는 광고 SDK를 사용하지 않습니다</li>
+  <li>모든 파일 처리는 기기에서 로컬로 수행됩니다</li>
+  <li>PDF 처리를 위한 파일 접근 권한만 요청합니다</li>
+</ul>
+<p>문의: pdfpageextractor@outlook.com</p>
+</div>
+</div>
+</div>
+
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.lang').forEach(function(l) { l.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.getElementById('lang-' + lang).classList.add('active');
+}
+</script>
+</body>
+</html>
